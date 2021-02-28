@@ -1,14 +1,12 @@
 import Foundation
 import Capacitor
 
-@objc(Cookies)
+@objc(CookiesPlugin)
 public class CookiesPlugin: CAPPlugin {
+    private let implementation = Cookies()
 
     @objc func clear(_ call: CAPPluginCall) {
-        let jar = HTTPCookieStorage.shared
-        jar.cookies?.forEach({ (cookie) in
-            jar.deleteCookie(cookie)
-        })
+        implementation.clear()
         call.resolve()
     }
 }
