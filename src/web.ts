@@ -1,20 +1,9 @@
 import { WebPlugin } from '@capacitor/core';
-import { CookiesPlugin, HttpClearCookiesOptions } from './definitions';
+
+import type { CookiesPlugin } from './definitions';
 
 export class CookiesWeb extends WebPlugin implements CookiesPlugin {
-  constructor() {
-    super({
-      name: 'Cookies',
-      platforms: ['web'],
-    });
-  }
-
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
-  }
-
-  async clear(_options: HttpClearCookiesOptions) {
+  async clear() {
     document.cookie
       .split(';')
       .forEach(
@@ -25,10 +14,3 @@ export class CookiesWeb extends WebPlugin implements CookiesPlugin {
       );
   }
 }
-
-const Cookies = new CookiesWeb();
-
-export { Cookies };
-
-import { registerWebPlugin } from '@capacitor/core';
-registerWebPlugin(Cookies);
