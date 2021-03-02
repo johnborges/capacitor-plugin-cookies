@@ -1,14 +1,8 @@
-declare module '@capacitor/core' {
-  interface PluginRegistry {
-    Cookies: CookiesPlugin;
-  }
-}
-
+/**
+ * Clears all cookies.
+ * @since 1.0.0
+ */
 export interface CookiesPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
-  clear(options: HttpClearCookiesOptions): Promise<void>;
+  clear(): Promise<void>;
 }
 
-export interface HttpClearCookiesOptions {
-  url: string;
-}
