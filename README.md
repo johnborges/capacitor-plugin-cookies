@@ -19,14 +19,10 @@ npx cap sync
 ## Usage
 
 ```javascript
-import { Plugins } from '@capacitor/core';
-
-const { Cookies } = Plugins;
+import { Cookies } from 'capacitor-plugin-cookies';
 
 const clearCookies = async () => {
-
   await Cookies.clear();
-
 }
 ```
 
